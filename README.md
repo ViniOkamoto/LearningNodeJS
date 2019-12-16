@@ -10,8 +10,8 @@
   
 ### Prerequisites
   You'll need NODE and YARN installed in your computer. These sites will help you with the installation and configures around my projects
-*[NODEJS](https://nodejs.org/en/) 
-*[Yarn](https://yarnpkg.com/pt-BR/docs/install#windows-stable)
+-[NODEJS](https://nodejs.org/en/) 
+-[Yarn](https://yarnpkg.com/pt-BR/docs/install#windows-stable)
 
 ### Installing
 
