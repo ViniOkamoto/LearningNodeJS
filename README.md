@@ -9,9 +9,11 @@
   All projects are documented and easy to understand.
   
 ### Prerequisites
-  You'll need NODE and YARN installed in your computer. These sites will help you with the installation and configures around my projects
+ These sites will help you with the installation and configures around my projects. To install these tools, you should read the documentation.
 * [NODEJS](https://nodejs.org/en/) 
 * [Yarn](https://yarnpkg.com/pt-BR/docs/install#windows-stable)
+* [Docker](https://docs.docker.com/install/)
+* [Postgress docker](https://hub.docker.com/_/postgres)
 
 ### Installing
 
