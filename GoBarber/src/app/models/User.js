@@ -1,0 +1,32 @@
+import { Model, Sequelize } from 'sequelize';
+import bcrypt from 'bcryptjs';
+
+// Here is the model, where we set what the user/client must to send by body request
+class User extends Model {
+  static init(sequelize) {
+    super.init(
+      {
+        name: Sequelize.STRING,
+        email: Sequelize.STRING,
+        password: Sequelize.VIRTUAL,
+        password_hash: Sequelize.STRING,
+        provider: Sequelize.BOOLEAN,
+      },
+      {
+        sequelize,
+      }
+    );
+    /* his addHook is literally a hook that we pass a parameter to when we want
+    to perform an action before saving or after saving
+    */
+    this.addHook('beforeSave', async user => {
+      if (user.password) {
+        user.password_hash = await bcrypt.hash(user.password, 8);
+      }
+    });
+    // This return will bring the model that is running
+    return this;
+  }
+}
+
+export default User;

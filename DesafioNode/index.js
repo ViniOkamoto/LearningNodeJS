@@ -115,7 +115,7 @@ api.delete("/projects/:id", checkIfIdExist, (req, res) => {
   //here I'm finding the index with the id i collected from url paramter
 
   projects.splice(projectIndex, 1);
-  // Once I find the index I splice and remove this index from array array
+  // Once I find the index I splice and remove object from array projects
   return res.json({ message: "Deletado com sucesso" });
 
 })
