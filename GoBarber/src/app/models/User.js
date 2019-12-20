@@ -27,6 +27,11 @@ class User extends Model {
     // This return will bring the model that is running
     return this;
   }
+
+  // is a function that checks if the parameter is the same as the user password
+  checkPassword(password) {
+    return bcrypt.compare(password, this.password_hash);
+  }
 }
 
 export default User;
