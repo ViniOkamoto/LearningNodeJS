@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import * as Yup from 'yup';
 import authConfig from '../../config/auth';
 import User from '../models/User';
 /* SessionController is a controller where we create the session(token)
@@ -6,6 +7,18 @@ for the user can realize the actions in the app.
  */
 class SessionController {
   async store(req, res) {
+    const schema = Yup.object().shape({
+      email: Yup.string()
+        .email()
+        .required(),
+      password: Yup.string()
+        .required()
+        .min(6),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation fails' });
+    }
     const { email, password } = req.body;
     // Here we find a user by email
     const user = await User.findOne({ where: { email } });
