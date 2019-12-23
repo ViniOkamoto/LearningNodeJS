@@ -28,6 +28,11 @@ class User extends Model {
     return this;
   }
 
+  // this is where we do the relations datas like one-to-one one-to-many many-to-many
+  static associate(models) {
+    this.belongsTo(models.File, { foreignKey: 'avatar_id' });
+  }
+
   // is a function that checks if the parameter is the same as the user password
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
