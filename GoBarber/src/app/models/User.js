@@ -30,7 +30,7 @@ class User extends Model {
 
   // this is where we do the relations datas like one-to-one one-to-many many-to-many
   static associate(models) {
-    this.belongsTo(models.File, { foreignKey: 'avatar_id' });
+    this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
   }
 
   // is a function that checks if the parameter is the same as the user password

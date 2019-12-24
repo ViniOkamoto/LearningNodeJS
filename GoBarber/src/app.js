@@ -4,6 +4,7 @@
  * Nodemon - Is a livereload which will help to restart the server when we change something
  */
 import express from 'express';
+import path from 'path';
 import routes from './routes';
 
 import './database';
@@ -17,6 +18,14 @@ class App {
 
   middlewares() {
     this.server.use(express.json());
+    /**
+     * It serves to direct static files such as images, css and html files that
+     * can be accessed directly by the browser.
+     */
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+    );
   }
 
   routes() {
