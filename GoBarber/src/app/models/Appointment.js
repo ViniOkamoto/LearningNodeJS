@@ -17,6 +17,7 @@ class Appointment extends Model {
   }
 
   static associate(models) {
+    // always that we have 2 foreign keys we must to identify the column with the "as"
     this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
     this.belongsTo(models.User, { foreignKey: 'provider_id', as: 'provider' });
   }
