@@ -14,10 +14,14 @@
 * [Yarn](https://yarnpkg.com/pt-BR/docs/install#windows-stable)
 * [Docker](https://docs.docker.com/install/)
 * [Postgress docker](https://hub.docker.com/_/postgres)
+* [MongoDB Compass](https://www.mongodb.com/)
+* [MongoDB Docker](https://hub.docker.com/_/mongo)
+* [Insomnia](https://insomnia.rest/download/) 
+
 
 ### Installing
 
-Basically, with the prerequisites installed, you'll need only configure the databases... to install the packages you must use the command "yarn" or "npm i"
+Basically, with the prerequisites installed, you'll need only configure the databases... to install the packages you must use the command "yarn" or "npm i", but tools as docker, postgress, mongodb, etc. You must to read the documentation. 
 
 ## Acknowledgments
 
