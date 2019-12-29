@@ -1,18 +1,27 @@
 import * as Yup from 'yup';
-import { startOfHour, parseISO, isBefore } from 'date-fns';
+import { startOfHour, parseISO, isBefore, format } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import Appointment from '../models/Appointment';
 import User from '../models/User';
 import File from '../models/File';
+import Notification from '../schema/Notification';
 
 class AppointmentController {
   async index(req, res) {
+    // Here we catch the page query and we set by default if the user is not on any page then page will be 1
     const { page = 1 } = req.query;
 
     const appointments = await Appointment.findAll({
       where: { user_id: req.userId, canceled_at: null },
       order: ['date'],
       attributes: ['id', 'date'],
+      // we define how many data we want show to user per page.
       limit: 20,
+      /**
+       * if we have 40 data, then will be 2 pages of data. If the user want to see
+       * the page 1 off set will result (1 -1 * 20) = 0, then show the next 20 datas
+       * if page is 2 then (2-1 * 20) = 20, then skip 20 datas and show the next 20
+       */
       offset: (page - 1) * 20,
       include: [
         {
@@ -87,10 +96,29 @@ class AppointmentController {
         .status(400)
         .json({ error: 'Appointment date is not available' });
     }
+
     const appointment = await Appointment.create({
       user_id: req.userId,
       provider_id,
       date: hourStart,
+    });
+
+    /**
+     * Notify appointment provider
+     */
+
+    const formattedDate = format(
+      hourStart,
+      "'dia' dd 'de' MMMM', às' H:mm'h'",
+      {
+        locale: pt,
+      }
+    );
+    const user = await User.findByPk(req.userId);
+
+    await Notification.create({
+      content: `Novo agendamento de ${user.name} para ${formattedDate} `,
+      user: provider_id,
     });
     return res.json(appointment);
   }
