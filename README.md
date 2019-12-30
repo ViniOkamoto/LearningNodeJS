@@ -6,7 +6,7 @@
 
 ## Getting Started
   Here you'll find some knowledge about relational, nonrelational, send queues, middleware, controllers, REST API all on node js. This repository will have 2 projects, one having api introduction without database, the other an application called gobarber with the above mentioned items.
-  All projects are documented and easy to understand.
+  All projects are documented and easy to understand what's happening .
   
 ### Prerequisites
  These sites will help you with the installation and configures around my projects. To install these tools, you should read the documentation.
@@ -16,7 +16,8 @@
 * [Postgress docker](https://hub.docker.com/_/postgres)
 * [MongoDB Compass](https://www.mongodb.com/)
 * [MongoDB Docker](https://hub.docker.com/_/mongo)
-* [Insomnia](https://insomnia.rest/download/) 
+* [Insomnia](https://insomnia.rest/download/)
+* [MailTrap](https://mailtrap.io/)
 
 
 ### Installing
