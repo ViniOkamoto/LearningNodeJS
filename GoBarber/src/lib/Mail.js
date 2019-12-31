@@ -7,7 +7,7 @@ import mailConfig from '../config/mail';
 class Mail {
   constructor() {
     const { host, port, secure, auth } = mailConfig;
-
+    // Here is one we set up the email creation connection
     this.transporter = nodemailer.createTransport({
       host,
       port,
@@ -35,6 +35,7 @@ class Mail {
     );
   }
 
+  // This method will be called in another class so that the user can send the message they want.
   sendMail(message) {
     return this.transporter.sendMail({
       ...mailConfig.default,

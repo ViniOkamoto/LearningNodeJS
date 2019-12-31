@@ -1,4 +1,5 @@
 import { Model, Sequelize } from 'sequelize';
+import { isBefore, subHours } from 'date-fns';
 // Here is the model, where we set what the user/client must to send by body request
 class Appointment extends Model {
   static init(sequelize) {
@@ -6,6 +7,20 @@ class Appointment extends Model {
       {
         date: Sequelize.DATE,
         canceled_at: Sequelize.DATE,
+        // Past checks if the appointment has already happened
+        past: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return isBefore(this.date, new Date());
+          },
+        },
+        // Cancelable checks if the current time is 2 hours before the appointment time
+        cancelable: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return isBefore(new Date(subHours(this.date, 2)));
+          },
+        },
       },
       {
         // This sequelize will render the model
