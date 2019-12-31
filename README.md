@@ -3,10 +3,9 @@
   This is my study about NODEJS, Here I show some lessons I've learned from rocketseat bootcamp. 
   *This repository is for node learning only
 > If you've any questions call me for my [Linkedin](https://www.linkedin.com/in/vinicius-leonardo-okamoto-795610190/) I'll help with what I can!!!
-
-## Getting Started
-  Here you'll find some knowledge about relational, nonrelational, send queues, middleware, controllers, REST API all on node js. This repository will have 2 projects, one having api introduction without database, the other an application called gobarber with the above mentioned items.
-  All projects are documented and easy to understand what's happening .
+## What will you see here?
+  Here you'll find some knowledge about relational, nonrelational, queues, middleware, controllers, jobs, configs and REST API, all on node js. This repository will have 2 projects, one having api introduction without database, the other an application called gobarber with the above mentioned items.
+  All projects are documented and easy to understand what's happening.
   
 ### Prerequisites
  These sites will help you with the installation and configures around my projects. To install these tools, you should read the documentation.
